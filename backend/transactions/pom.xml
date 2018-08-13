@@ -9,7 +9,6 @@
     <packaging>jar</packaging>
 
     <name>transactions</name>
-    <description></description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

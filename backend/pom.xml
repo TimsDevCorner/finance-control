@@ -9,7 +9,6 @@
     <packaging>POM</packaging>
 
     <name>services</name>
-    <description></description>
 
     <modules>
         <module>transactions</module>
