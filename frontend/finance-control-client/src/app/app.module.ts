@@ -8,9 +8,17 @@ import { NavigatorComponent } from './component/navigator/navigator.component';
 import { TransactionComponent } from './component/edit-mask/transaction/transaction.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
+import { TransactionListComponent } from './component/list/transaction-list/transaction-list.component';
+import { SourceListComponent } from './component/list/source-list/source-list.component';
+import { AccountListComponent } from './component/list/account-list/account-list.component';
+import { ListBaseComponent } from './component/list/list-base/list-base.component';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
+  { path: '', component: DashboardComponent },
+  { path: 'transactions', component: TransactionListComponent },
+  { path: 'accounts', component: AccountListComponent },
+  { path: 'sources', component: SourceListComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -20,7 +28,11 @@ const appRoutes: Routes = [
     NavigatorComponent,
     TransactionComponent,
     DashboardComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TransactionListComponent,
+    SourceListComponent,
+    AccountListComponent,
+    ListBaseComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
