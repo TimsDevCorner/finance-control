@@ -12,6 +12,8 @@ import { TransactionListComponent } from './component/list/transaction-list/tran
 import { SourceListComponent } from './component/list/source-list/source-list.component';
 import { AccountListComponent } from './component/list/account-list/account-list.component';
 import { ListBaseComponent } from './component/list/list-base/list-base.component';
+import {TransactionService} from './service/transaction.service';
+import {HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -37,9 +39,10 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TransactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
