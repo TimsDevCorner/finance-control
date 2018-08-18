@@ -1,4 +1,5 @@
 export class Transaction {
+  public href: String;
 
   constructor(
     public transactionId: number,

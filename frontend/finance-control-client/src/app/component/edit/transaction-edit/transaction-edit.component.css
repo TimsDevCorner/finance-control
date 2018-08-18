@@ -1,0 +1,8 @@
+.border-space{
+  width: 95%
+}
+
+.inline-space{
+  display: inline-block;
+  padding-right: 5px;
+}
