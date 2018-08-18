@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
-/*@import '~bootswatch/dist/darkly/_bootswatch.scss';*/
-/*@import '~bootswatch/dist/darkly/_variables.scss';*/
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  height: 100%;
+}
 
 body {
-  padding-top: 5rem;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }

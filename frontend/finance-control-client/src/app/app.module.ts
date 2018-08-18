@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {RouterLink, RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavigatorComponent } from './component/navigator/navigator.component';
@@ -13,8 +12,11 @@ import { AccountListComponent } from './component/list/account-list/account-list
 import { ListBaseComponent } from './component/list/list-base/list-base.component';
 import { TransactionService } from './service/transaction.service';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { TransactionEditComponent } from './component/edit/transaction-edit/transaction-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -42,9 +44,16 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    NgbModule,
     HttpClientModule,
-    FormsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [TransactionService],
   bootstrap: [AppComponent]
