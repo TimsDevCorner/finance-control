@@ -10,7 +10,7 @@ export class NavigatorComponent implements OnInit {
   isNavbarCollapsed: Boolean;
 
   ngOnInit() {
-    this.isNavbarCollapsed = false;
+    this.isNavbarCollapsed = true;
   }
 
 }

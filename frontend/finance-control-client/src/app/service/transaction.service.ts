@@ -16,7 +16,7 @@ export class TransactionService {
   }
 
   public getAll(): Observable<any> {
-    return this.httpClient.get(ApiUrls.API_BASE + ApiUrls.API_TRANSACTION);
+    return this.httpClient.get(ApiUrls.API_BASE + 'transactionlist');
   }
 
   public get(id: number): Observable<any> {
