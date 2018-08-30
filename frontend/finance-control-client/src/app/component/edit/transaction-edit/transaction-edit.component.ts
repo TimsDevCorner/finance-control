@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TransactionService} from '../../../service/transaction.service';
 import {Subscription} from '../../../../../node_modules/rxjs';
 import {Transaction} from '../../../entity/transaction';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-transaction-edit',
   templateUrl: './transaction-edit.component.html',
   styleUrls: ['./transaction-edit.component.css']
 })
-export class TransactionEditComponent implements OnInit {
+export class TransactionEditComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
-  private currentTransaction: Transaction;
+  private transaction: Transaction;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,15 +27,41 @@ export class TransactionEditComponent implements OnInit {
       if (id) {
         this.transactionService.get(id).subscribe((car: any) => {
           if (car) {
-            this.currentTransaction = car;
-            this.currentTransaction.href = car._links.self.href;
+            this.transaction = car;
+            this.transaction.href = car._links.self.href;
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
-            this.router.navigate(['/transactions']);
+            this.gotoList()
           }
         });
       }
-  });
+    });
+  }
+
+  gotoList() {
+    this.router.navigate(['/transactions']);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  save(form: NgForm) {
+    this.transactionService
+      .save(form)
+      .subscribe(
+        result => this.gotoList(),
+        error => console.error(error)
+      );
+  }
+
+  remove(href) {
+    this.transactionService
+      .remove(href)
+      .subscribe(
+      result => this.gotoList(),
+      error => console.error(error)
+    );
   }
 
 }

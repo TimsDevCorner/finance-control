@@ -1,3 +1,14 @@
-<p>
-  source-list works!
-</p>
+<mat-card>
+  <mat-card-header>Source List</mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let source of sources">
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/source-edit', source.sourceId]">{{ source.name }}</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <button mat-fab color="primary" [routerLink]="['/source-add']">Add</button>
+</mat-card>

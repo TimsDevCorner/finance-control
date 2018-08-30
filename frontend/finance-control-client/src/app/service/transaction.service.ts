@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from '../../../node_modules/rxjs';
-import {Transaction} from '../entity/transaction';
 import { ApiUrls } from '../config/api-urls';
 
 @Injectable({
